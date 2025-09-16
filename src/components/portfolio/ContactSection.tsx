@@ -20,26 +20,7 @@ export function ContactSection() {
     >
       <div className="grid lg:grid-cols-2 gap-12">
         <div>
-          <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <Mail className="w-5 h-5 text-primary" />
-              <a href={`mailto:${portfolioData.contact.email}`} className="text-muted-foreground hover:text-foreground">{portfolioData.contact.email}</a>
-            </div>
-            <div className="flex items-center gap-4">
-              <Phone className="w-5 h-5 text-primary" />
-              <span className="text-muted-foreground">{portfolioData.contact.phone}</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <Github className="w-5 h-5 text-primary" />
-              <Link href={portfolioData.contact.github} target="_blank" className="text-muted-foreground hover:text-foreground">GitHub Profile</Link>
-            </div>
-            <div className="flex items-center gap-4">
-              <Linkedin className="w-5 h-5 text-primary" />
-              <Link href={portfolioData.contact.linkedin} target="_blank" className="text-muted-foreground hover:text-foreground">LinkedIn Profile</Link>
-            </div>
-          </div>
-          <h3 className="text-2xl font-bold mt-12 mb-6">What I Can Build For You</h3>
+          <h3 className="text-2xl font-bold mb-6">What I Can Build For You</h3>
           <div className="space-y-6">
             {portfolioData.whatICanBuild.map(item => (
               <div key={item.title} className="flex items-start gap-4">
