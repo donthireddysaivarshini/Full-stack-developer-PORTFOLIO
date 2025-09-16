@@ -79,9 +79,8 @@ export function DeveloperJourney() {
   return (
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
       <div className="relative">
+        <div className="absolute top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10" />
         <div className="flex overflow-x-auto pb-8 space-x-8 snap-x-mandatory">
-          <div className="absolute top-1/2 -translate-y-1/2 h-0.5 w-full bg-border" />
-          
           {journeyItems.map((item, index) => (
             <div key={index} className="relative flex-shrink-0 w-80 snap-center animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
               <div className={`absolute left-1/2 -translate-x-1/2 -top-4 w-8 h-8 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
