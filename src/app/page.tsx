@@ -5,7 +5,6 @@ import { HeroSection } from '@/components/portfolio/HeroSection';
 import { CapabilitiesSection } from '@/components/portfolio/CapabilitiesSection';
 import { ProjectsSection } from '@/components/portfolio/ProjectsSection';
 import { SkillsSection } from '@/components/portfolio/SkillsSection';
-import { AchievementsSection } from '@/components/portfolio/AchievementsSection';
 import { ProcessSection } from '@/components/portfolio/ProcessSection';
 import { ContactSection } from '@/components/portfolio/ContactSection';
 import { Footer } from '@/components/portfolio/Footer';
@@ -41,7 +40,6 @@ export default function Home() {
         <DeveloperJourney />
         <ProjectsSection />
         <SkillsSection />
-        <AchievementsSection />
         <ProcessSection />
         <ContactSection />
       </main>
