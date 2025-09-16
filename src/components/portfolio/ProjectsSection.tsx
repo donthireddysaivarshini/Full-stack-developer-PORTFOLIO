@@ -1,7 +1,5 @@
 'use client'
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -9,14 +7,12 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Section } from '@/components/portfolio/Section';
 import { portfolioData } from '@/lib/portfolio-data';
 import { Github, ExternalLink } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export function ProjectsSection() {
 
   const ProjectCard = ({ project }: { project: (typeof portfolioData.projects)[0] }) => (
-    <Card className={cn(
-      "h-full flex flex-col overflow-hidden transition-all duration-300"
-    )}>
+    <Card className="h-full flex flex-col overflow-hidden transition-all duration-300">
       <CardHeader>
         <CardTitle>{project.title}</CardTitle>
         <CardDescription className="mt-1">{project.year}</CardDescription>
@@ -73,8 +69,8 @@ export function ProjectsSection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2" />
+        <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2" />
       </Carousel>
     </Section>
   );
