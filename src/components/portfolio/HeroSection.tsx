@@ -44,36 +44,18 @@ export function HeroSection() {
 
         <div className="relative mt-12 md:mt-0 flex justify-center items-center">
             <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full"></div>
-            <div className="grid grid-cols-4 gap-4 md:gap-6 relative">
-              <TechIcon icon={Icons.react} label="React" />
-              <TechIcon icon={Icons.javascript} label="JS" />
-              <TechIcon icon={Icons.python} label="Python" />
-              <TechIcon icon={Icons.java} label="Java" />
-              <div className="col-span-2"></div>
-              <div className="col-span-2"></div>
-              <TechIcon icon={Server} label="APIs" />
-              <div></div>
-               <div className="relative w-40 h-40 md:w-48 md:h-48 col-span-2 row-span-2 place-self-center">
-                {profileImage && (
-                  <Image
-                    src={profileImage.imageUrl}
-                    alt={portfolioData.name}
-                    width={192}
-                    height={192}
-                    priority
-                    className="rounded-full object-cover border-4 border-background shadow-lg"
-                    data-ai-hint={profileImage.imageHint}
-                  />
-                )}
-              </div>
-              <div></div>
-              <TechIcon icon={Database} label="MySQL" />
-              <div className="col-span-2"></div>
-              <div className="col-span-2"></div>
-              <TechIcon icon={Code} label="Streamlit" />
-              <TechIcon icon={Icons.github} label="Git" />
-              <TechIcon icon={Icons.tensorflow} label="TF" />
-              <TechIcon icon={Icons.vscode} label="VS Code" />
+            <div className="relative w-40 h-40 md:w-48 md:h-48 col-span-2 row-span-2 place-self-center">
+            {profileImage && (
+                <Image
+                src={profileImage.imageUrl}
+                alt={portfolioData.name}
+                width={192}
+                height={192}
+                priority
+                className="rounded-full object-cover border-4 border-background shadow-lg"
+                data-ai-hint={profileImage.imageHint}
+                />
+            )}
             </div>
         </div>
       </div>
