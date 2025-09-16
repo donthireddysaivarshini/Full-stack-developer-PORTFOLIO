@@ -9,7 +9,7 @@ import { portfolioData } from '@/lib/portfolio-data';
 
 const navLinks = [
   { href: '#capabilities', label: 'Capabilities' },
-  { href: '#education', label: 'Education' },
+  { href: '#journey', label: 'Education' },
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' },
