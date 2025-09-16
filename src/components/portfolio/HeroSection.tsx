@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { AnimatedTyping } from '@/components/portfolio/AnimatedTyping';
 import { portfolioData } from '@/lib/portfolio-data';
@@ -59,6 +60,14 @@ export function HeroSection() {
             <Button size="lg" variant="outline" asChild>
               <a href="#contact">Get In Touch <ArrowDown className="ml-2 h-4 w-4" /></a>
             </Button>
+          </div>
+          <div className="flex gap-6 justify-center animate-in fade-in-up mt-4" style={{ transitionDelay: '800ms' }}>
+            <a href={portfolioData.contact.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-foreground">
+              <Icons.github className="h-7 w-7" />
+            </a>
+            <a href={portfolioData.contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-foreground">
+              <Icons.linkedin className="h-7 w-7" />
+            </a>
           </div>
         </div>
       </div>
