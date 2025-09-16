@@ -127,7 +127,7 @@ export const portfolioData = {
       tier: 1,
       title: 'Job Scraper - Career Aggregator',
       year: '2025',
-      description: 'A full stack job board that scrapes and aggregates listings from multiple platforms like LinkedIn and Indeed. Includes job matching, filtering, and tracking features.',
+      description: 'A full stack job board that scrapes and aggregates listings from multiple platforms like LinkedIn and Indeed. Includes job matching, filtering, and tracking features, with a functional frontend.',
       techStack: ['Python', 'BeautifulSoup', 'Django', 'React', 'PostgreSQL'],
       liveDemo: '#',
       github: 'https://github.com/donthireddysaivarshini/Job-Scraper',
@@ -141,7 +141,7 @@ export const portfolioData = {
       description: 'A complete CRUD desktop application for educational institutions. Built with Java Swing and a MySQL backend, featuring role-based access and modules for attendance, grades, and messaging.',
       techStack: ['Java', 'Java Swing', 'MySQL', 'MVC'],
       liveDemo: '#',
-      github: '#',
+      github: 'https://github.com/donthireddysaivarshini/Student-Management-System',
       image: 'https://picsum.photos/seed/student/600/400',
       imageHint: 'education management'
     },
@@ -163,7 +163,7 @@ export const portfolioData = {
       description: 'An AI chatbot platform providing personalized assistance and emotional support. Features an interactive chat interface and a natural language processing backend.',
       techStack: ['AI', 'NLP', 'Python', 'Flask', 'WebSocket'],
       liveDemo: '#',
-      github: '#',
+      github: 'https://github.com/donthireddysaivarshini/Comfort_Companion',
       image: 'https://picsum.photos/seed/chatbot/600/400',
       imageHint: 'chat bubbles'
     },
