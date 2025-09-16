@@ -125,7 +125,7 @@ export const portfolioData = {
     },
     {
       tier: 1,
-      title: 'Job Scraper - Career Aggregator',
+      title: 'Job Scraper',
       year: '2025',
       description: 'A full stack job board that scrapes and aggregates listings from multiple platforms like LinkedIn and Indeed. Includes job matching, filtering, and tracking features, with a functional frontend.',
       techStack: ['Python', 'BeautifulSoup', 'Django', 'React', 'PostgreSQL'],
