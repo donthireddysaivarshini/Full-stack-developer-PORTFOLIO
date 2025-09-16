@@ -76,3 +76,15 @@ body {
     @apply scroll-smooth;
   }
 }
+
+@layer utilities {
+  .fade-in-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .faded-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

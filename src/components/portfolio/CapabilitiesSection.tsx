@@ -13,7 +13,7 @@ export function CapabilitiesSection() {
     >
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {portfolioData.capabilities.map((capability) => (
-          <Card key={capability.title} className="bg-background/50 transform hover:-translate-y-2 transition-transform duration-300">
+          <Card key={capability.title} className="bg-background/50 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-primary/20">
             <CardHeader>
               <div className="flex items-center gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">

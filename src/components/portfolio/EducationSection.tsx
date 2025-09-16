@@ -11,7 +11,7 @@ export function EducationSection() {
     >
       <div className="grid md:grid-cols-2 gap-8">
         {portfolioData.education.map((edu) => (
-          <Card key={edu.degree} className="flex flex-col transform hover:-translate-y-1 transition-transform duration-300">
+          <Card key={edu.degree} className="flex flex-col transform hover:-translate-y-1 transition-transform duration-300 shadow-lg hover:shadow-primary/20">
              <CardHeader className="flex-row items-center gap-4">
               <div className="p-3 bg-primary/10 rounded-full">
                 <edu.icon className="w-6 h-6 text-primary" />
