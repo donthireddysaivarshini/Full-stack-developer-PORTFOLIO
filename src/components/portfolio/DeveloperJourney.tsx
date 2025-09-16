@@ -100,7 +100,7 @@ export function DeveloperJourney() {
                     <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
                   </div>
                 </div>
-                <div className={`h-full rounded-lg bg-card/50 p-6 border-t-4 ${borderColorClasses[item.type]} transition-all duration-300 hover:shadow-[0_0_15px_hsl(var(--primary)/0.4)] hover:-translate-y-2 pt-10`}>
+                <div className={`h-full rounded-lg bg-card/50 p-6 border-t-4 ${borderColorClasses[item.type]} transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.6)] hover:-translate-y-2 pt-10`}>
                   <p className="text-sm text-muted-foreground mb-1 text-center">{item.period}</p>
                   <h3 className="font-bold text-lg text-foreground text-center">{item.title}</h3>
                   <h4 className="font-semibold text-primary mb-3 text-center">{item.subtitle}</h4>
