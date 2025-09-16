@@ -41,14 +41,14 @@ export function ProjectsSection() {
                       </div>
                       <div className="flex gap-2">
                         {project.github !== '#' && (
-                          <Button variant="outline" size="sm" asChild>
+                          <Button variant="secondary" size="sm" asChild>
                             <Link href={project.github} target="_blank">
                               <Github className="mr-2 h-4 w-4" /> GitHub
                             </Link>
                           </Button>
                         )}
                         {project.liveDemo !== '#' && (
-                          <Button variant="outline" size="sm" asChild>
+                          <Button variant="default" size="sm" asChild>
                             <Link href={project.liveDemo} target="_blank">
                               <ExternalLink className="mr-2 h-4 w-4" /> Demo
                             </Link>
