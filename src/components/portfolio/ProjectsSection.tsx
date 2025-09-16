@@ -81,8 +81,8 @@ export function ProjectsSection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden lg:flex" />
-        <CarouselNext className="hidden lg:flex" />
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </Section>
   );
