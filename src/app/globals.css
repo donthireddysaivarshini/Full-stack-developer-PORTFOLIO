@@ -99,20 +99,10 @@ body {
     transform: translateY(0) translateX(0) scale(1);
   }
   .horizontal-scrollbar::-webkit-scrollbar {
-    height: 8px;
+    display: none;
   }
-
-  .horizontal-scrollbar::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-    border-radius: 4px;
-  }
-
-  .horizontal-scrollbar::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
-    border-radius: 4px;
-  }
-
-  .horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.8);
+  .horizontal-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
