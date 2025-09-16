@@ -17,13 +17,14 @@ export function ContactSection() {
       title="Let's Build Something Amazing"
       description="I'm open for full-time opportunities and freelance projects. Let's connect and discuss how I can help."
       className="bg-card/50"
+      animation="fade-in-up"
     >
       <div className="grid lg:grid-cols-2 gap-12">
-        <div>
+        <div className="fade-in-left">
           <h3 className="text-2xl font-bold mb-6">What I Can Build For You</h3>
           <div className="space-y-6">
-            {portfolioData.whatICanBuild.map(item => (
-              <div key={item.title} className="flex items-start gap-4">
+            {portfolioData.whatICanBuild.map((item, index) => (
+              <div key={item.title} className="flex items-start gap-4 fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
                 <div className="p-2 bg-primary/10 rounded-full mt-1">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
@@ -35,7 +36,7 @@ export function ContactSection() {
             ))}
           </div>
         </div>
-        <Card>
+        <Card className="fade-in-right">
           <CardHeader>
             <CardTitle>Project Inquiry</CardTitle>
             <CardDescription>Fill out the form and I'll get back to you as soon as possible.</CardDescription>

@@ -8,11 +8,11 @@ import { ChartTooltipContent } from '@/components/ui/chart';
 
 type SkillCategory = keyof typeof portfolioData.skills;
 
-const SkillChart = ({ category, title }: { category: SkillCategory; title: string }) => {
+const SkillChart = ({ category, title, animation, delay }: { category: SkillCategory; title: string, animation: string, delay: number }) => {
   const skills = portfolioData.skills[category];
 
   return (
-    <Card>
+    <Card className={animation} style={{ transitionDelay: `${delay}ms` }}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
@@ -48,12 +48,13 @@ export function SkillsSection() {
       id="skills"
       title="Technical Skills"
       description="My proficiency across various technologies in the full stack ecosystem."
+      animation="fade-in-up"
     >
       <div className="grid md:grid-cols-2 gap-8">
-        <SkillChart category="frontend" title="Frontend Development" />
-        <SkillChart category="backend" title="Backend Development" />
-        <SkillChart category="databasesAndDevOps" title="Databases & DevOps" />
-        <SkillChart category="emerging" title="Emerging Technologies" />
+        <SkillChart category="frontend" title="Frontend Development" animation="fade-in-left" delay={0} />
+        <SkillChart category="backend" title="Backend Development" animation="fade-in-right" delay={100} />
+        <SkillChart category="databasesAndDevOps" title="Databases & DevOps" animation="fade-in-left" delay={200} />
+        <SkillChart category="emerging" title="Emerging Technologies" animation="fade-in-right" delay={300} />
       </div>
     </Section>
   );

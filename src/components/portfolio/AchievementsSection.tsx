@@ -18,17 +18,18 @@ export function AchievementsSection() {
       title="Achievements & Recognition"
       description="Milestones and accomplishments that mark my journey as a developer."
       className="bg-card/50"
+      animation="fade-in-up"
     >
       <div className="grid lg:grid-cols-2 gap-8">
-        <Card className="border-gold/50">
+        <Card className="border-gold/50 fade-in-left">
           <CardHeader>
             <CardTitle className="text-gold">Technical Achievements</CardTitle>
           </CardHeader>
           <div className="p-6 pt-0 grid gap-6">
-            {portfolioData.achievements.technical.map(ach => {
+            {portfolioData.achievements.technical.map((ach, index) => {
               const Icon = iconMap[ach.icon];
               return (
-                <div key={ach.title} className="flex items-start gap-4">
+                <div key={ach.title} className="flex items-start gap-4 fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
                   <div className="p-2 bg-gold/10 rounded-full">
                     <Icon className="w-5 h-5 text-gold" />
                   </div>
@@ -41,15 +42,15 @@ export function AchievementsSection() {
             })}
           </div>
         </Card>
-        <Card className="border-accent/50">
+        <Card className="border-accent/50 fade-in-right">
           <CardHeader>
             <CardTitle className="text-accent">Academic Excellence</CardTitle>
           </CardHeader>
           <div className="p-6 pt-0 grid gap-6">
-            {portfolioData.achievements.academic.map(ach => {
+            {portfolioData.achievements.academic.map((ach, index) => {
               const Icon = iconMap[ach.icon];
               return (
-                <div key={ach.title} className="flex items-start gap-4">
+                <div key={ach.title} className="flex items-start gap-4 fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
                   <div className="p-2 bg-accent/10 rounded-full">
                     <Icon className="w-5 h-5 text-accent" />
                   </div>

@@ -10,10 +10,11 @@ export function ExperienceSection() {
       title="Full Stack Experience"
       description="Hands-on experience in building, deploying, and maintaining full stack applications."
       className="bg-card/50"
+      animation="fade-in-right"
     >
       <div className="max-w-4xl mx-auto">
-        {portfolioData.experience.map((exp) => (
-          <Card key={exp.company} className="overflow-hidden border-primary/20 hover:border-primary/50 transition-colors duration-300 shadow-lg hover:shadow-primary/20">
+        {portfolioData.experience.map((exp, index) => (
+          <Card key={exp.company} className="overflow-hidden border-primary/20 hover:border-primary/50 transition-colors duration-300 shadow-lg hover:shadow-primary/20 fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
             <div className="grid md:grid-cols-3">
               <div className="p-6 bg-muted/30 flex flex-col justify-center items-center md:items-start text-center md:text-left">
                 <exp.icon className="w-10 h-10 text-primary mb-4" />
