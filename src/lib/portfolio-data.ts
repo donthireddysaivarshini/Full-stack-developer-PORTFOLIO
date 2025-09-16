@@ -107,8 +107,8 @@ export const portfolioData = {
       year: '2025',
       description: 'An AI-powered full stack application that generates recipes from ingredients. Features an interactive UI and a machine learning backend for intelligent suggestions.',
       techStack: ['AI/ML', 'Python', 'React', 'Node.js', 'MySQL'],
-      liveDemo: '#',
-      github: '#',
+      liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_ai-genai-edunetfoundation-activity-7354524969650868227-tTMF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
+      github: 'https://github.com/donthireddysaivarshini/Recipe-Snap',
       image: 'https://picsum.photos/seed/recipes/600/400',
       imageHint: 'food ingredients',
     },
@@ -118,7 +118,7 @@ export const portfolioData = {
       year: '2024',
       description: 'A platform for aggregating e-commerce deals. Features a user-friendly browsing interface, an advanced web scraping engine, and real-time data pipeline.',
       techStack: ['Python', 'Selenium', 'Flask', 'React', 'MySQL'],
-      liveDemo: '#',
+      liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_infosysspringboardinternship-pythonprojects-activity-7353692116599910400-664U?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Deal_Scraper',
       image: 'https://picsum.photos/seed/deals/600/400',
       imageHint: 'online shopping'
@@ -129,7 +129,7 @@ export const portfolioData = {
       year: '2025',
       description: 'A full stack job board that scrapes and aggregates listings from multiple platforms like LinkedIn and Indeed. Includes job matching, filtering, and tracking features, with a functional frontend.',
       techStack: ['Python', 'BeautifulSoup', 'Django', 'React', 'PostgreSQL'],
-      liveDemo: '#',
+      liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_built-a-smarter-way-to-discover-behance-activity-7354026177709182976-kbhX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Job-Scraper',
       image: 'https://picsum.photos/seed/jobs/600/400',
       imageHint: 'job search'
@@ -140,7 +140,7 @@ export const portfolioData = {
       year: '2024',
       description: 'A complete CRUD desktop application for educational institutions. Built with Java Swing and a MySQL backend, featuring role-based access and modules for attendance, grades, and messaging.',
       techStack: ['Java', 'Java Swing', 'MySQL', 'MVC'],
-      liveDemo: '#',
+      liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_javaprojects-studentmanagementsystem-mysql-activity-7354776720702394368-Cac6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Student-Management-System',
       image: 'https://picsum.photos/seed/student/600/400',
       imageHint: 'education management'
@@ -152,7 +152,7 @@ export const portfolioData = {
       description: 'An IoT full stack solution for real-time anomaly detection using a Raspberry Pi and TensorFlow Lite. The system includes a Python backend for video processing and alerts.',
       techStack: ['IoT', 'Raspberry Pi', 'TensorFlow Lite', 'Python', 'OpenCV'],
       liveDemo: '#',
-      github: '#',
+      github: 'https://github.com/donthireddysaivarshini/AI-Powered-Smart-Surveillance',
       image: 'https://picsum.photos/seed/surveillance/600/400',
       imageHint: 'security camera'
     },
@@ -162,7 +162,7 @@ export const portfolioData = {
       year: '2024',
       description: 'An AI chatbot platform providing personalized assistance and emotional support. Features an interactive chat interface and a natural language processing backend.',
       techStack: ['AI', 'NLP', 'Python', 'Flask', 'WebSocket'],
-      liveDemo: '#',
+      liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_of-course-it-doesnt-actually-talk-like-activity-7362544100404822017-APHM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Comfort_Companion',
       image: 'https://picsum.photos/seed/chatbot/600/400',
       imageHint: 'chat bubbles'
