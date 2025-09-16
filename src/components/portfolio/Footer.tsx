@@ -12,7 +12,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <Code className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">VersaStack Portfolio</span>
+              <span className="font-bold text-lg">SAI VARSHINI PORTFOLIO</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
               &copy; {new Date().getFullYear()} {portfolioData.name}. All rights reserved.
