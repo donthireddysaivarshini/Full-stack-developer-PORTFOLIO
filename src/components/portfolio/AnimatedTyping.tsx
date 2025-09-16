@@ -41,7 +41,7 @@ export function AnimatedTyping({ strings, className }: AnimatedTypingProps) {
   return (
     <span className={cn("relative", className)}>
       {currentString.substring(0, subIndex)}
-      <span className="absolute right-[-0.2em] top-0 bottom-0 border-r-2 border-primary animate-[blink-caret_1s_infinite] motion-reduce:hidden" aria-hidden="true" />
+      <span className="bg-primary w-[10px] h-[1.5rem] ml-1 inline-block animate-[blink-caret_1s_infinite] motion-reduce:hidden" aria-hidden="true" />
     </span>
   );
 }

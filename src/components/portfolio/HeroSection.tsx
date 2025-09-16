@@ -1,10 +1,11 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { AnimatedTyping } from '@/components/portfolio/AnimatedTyping';
 import { portfolioData } from '@/lib/portfolio-data';
 import { Icons } from '@/components/portfolio/Icons';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowDown, Code, Database, Server } from 'lucide-react';
+import { ArrowDown, Code, Database, Server, Terminal } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const TechIcon = ({ icon: Icon, label, className }: { icon: React.ElementType, label: string, className?: string }) => (
@@ -22,13 +23,23 @@ export function HeroSection() {
   return (
     <section id="hero" className="relative overflow-hidden">
       <div className="container relative z-10 grid items-center min-h-[calc(100vh-4rem)] py-20">
+        
+        {/* Floating Icons */}
+        <Icons.react className="absolute top-[15%] left-[10%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '1s' }} />
+        <Icons.python className="absolute top-[20%] right-[15%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '3s' }}/>
+        <Database className="absolute bottom-[25%] left-[20%] w-8 h-8 text-primary/20 animate-float opacity-50" style={{ animationDelay: '2s' }} />
+        <Server className="absolute bottom-[20%] right-[10%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '4s' }} />
+
+
         <div className="flex flex-col gap-6 text-center items-center">
           <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter animate-in fade-in-up" style={{ transitionDelay: '0ms' }}>
             {portfolioData.name}
           </h1>
-          <p className="text-xl md:text-2xl text-primary font-code h-8 animate-in fade-in-up" style={{ transitionDelay: '200ms' }}>
+          <div className="text-xl md:text-2xl text-primary font-code h-8 animate-in fade-in-up flex items-center" style={{ transitionDelay: '200ms' }}>
+            <span className="text-muted-foreground/50">{'{ '}</span>
             <AnimatedTyping strings={portfolioData.subtitles} />
-          </p>
+            <span className="text-muted-foreground/50">{' }'}</span>
+          </div>
           <p className="max-w-xl text-muted-foreground animate-in fade-in-up" style={{ transitionDelay: '400ms' }}>
             A versatile full stack developer with a passion for building robust and scalable applications from end-to-end.
           </p>
