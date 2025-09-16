@@ -10,24 +10,28 @@ const SkillChart = ({ category, title, animation, delay }: { category: SkillCate
   const skills = portfolioData.skills[category];
 
   return (
-    <Card className={`animate-in ${animation}`} style={{ transitionDelay: `${delay}ms` }}>
+    <Card className={`animate-in ${animation} bg-background/50`} style={{ transitionDelay: `${delay}ms` }}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-6">
           {skills.map((skill, index) => (
-            <div key={skill.name} className="space-y-1 animate-in pop-up" style={{ transitionDelay: `${index * 50}ms` }}>
+            <div 
+              key={skill.name} 
+              className="space-y-2 group animate-in pop-up" 
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
               <div className="flex justify-between items-center text-sm">
-                <div className="flex items-center gap-2 font-medium">
-                  <skill.icon className="h-4 w-4 text-muted-foreground" />
-                  <span>{skill.name}</span>
+                <div className="flex items-center gap-3 font-medium">
+                  <skill.icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
+                  <span className="transition-colors group-hover:text-foreground">{skill.name}</span>
                 </div>
-                <span className="text-muted-foreground">{skill.level}%</span>
+                <span className="text-muted-foreground transition-colors group-hover:text-foreground">{skill.level}%</span>
               </div>
-              <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+              <div className="h-2 w-full bg-muted rounded-full overflow-hidden transition-shadow group-hover:shadow-[0_0_10px_hsl(var(--primary)/0.5)]">
                 <div 
-                  className="h-full bg-primary rounded-full" 
+                  className="h-full bg-primary rounded-full transition-all duration-500" 
                   style={{ width: `${skill.level}%` }}
                 />
               </div>
@@ -46,6 +50,7 @@ export function SkillsSection() {
       id="skills"
       title="Technical Skills"
       description="My proficiency across various technologies in the full stack ecosystem."
+      className="bg-card/50"
     >
       <div className="grid md:grid-cols-2 gap-8">
         <SkillChart category="frontend" title="Frontend Development" animation="fade-in-left" delay={0} />
