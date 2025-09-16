@@ -1,0 +1,100 @@
+'use client'
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Section } from '@/components/portfolio/Section';
+import { portfolioData } from '@/lib/portfolio-data';
+import { Github, ExternalLink, Sparkles } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+type ProjectsSectionProps = {
+  recommendedProjects: string[];
+};
+
+export function ProjectsSection({ recommendedProjects }: ProjectsSectionProps) {
+  const isRecommended = (title: string) => recommendedProjects.includes(title);
+
+  const ProjectCard = ({ project }: { project: (typeof portfolioData.projects)[0] }) => (
+    <Card className={cn(
+      "h-full flex flex-col overflow-hidden transition-all duration-300",
+      isRecommended(project.title) && "border-primary shadow-lg shadow-primary/20 ring-2 ring-primary"
+    )}>
+      <CardHeader className="relative">
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={600}
+          height={400}
+          className="w-full h-48 object-cover"
+          data-ai-hint={project.imageHint}
+        />
+        {isRecommended(project.title) && (
+          <Badge variant="default" className="absolute top-4 right-4 bg-primary text-primary-foreground">
+            <Sparkles className="mr-2 h-4 w-4" /> Recommended
+          </Badge>
+        )}
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <CardTitle>{project.title}</CardTitle>
+        <CardDescription className="mt-1">{project.year}</CardDescription>
+        <p className="mt-4 text-sm text-muted-foreground">{project.description}</p>
+      </CardContent>
+      <CardFooter className="flex-col items-start gap-4">
+        <div className="flex flex-wrap gap-2">
+          {project.techStack.map(tech => (
+            <Badge key={tech} variant="secondary">{tech}</Badge>
+          ))}
+        </div>
+        <div className="flex gap-2">
+          {project.github !== '#' && (
+            <Button variant="outline" size="sm" asChild>
+              <Link href={project.github} target="_blank">
+                <Github className="mr-2 h-4 w-4" /> GitHub
+              </Link>
+            </Button>
+          )}
+          {project.liveDemo !== '#' && (
+            <Button variant="outline" size="sm" asChild>
+              <Link href={project.liveDemo} target="_blank">
+                <ExternalLink className="mr-2 h-4 w-4" /> Demo
+              </Link>
+            </Button>
+          )}
+        </div>
+      </CardFooter>
+    </Card>
+  );
+
+  return (
+    <Section
+      id="projects"
+      title="Full Stack Projects"
+      description="A selection of applications I've built, showcasing my skills across the stack."
+      className="bg-card/50"
+    >
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full"
+      >
+        <CarouselContent>
+          {portfolioData.projects.map((project, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1 h-full">
+                <ProjectCard project={project} />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
+      </Carousel>
+    </Section>
+  );
+}

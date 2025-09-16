@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "profile-pic",
+      "description": "A professional headshot of Sai Varshini Donthireddy.",
+      "imageUrl": "https://picsum.photos/seed/sai-varshini/300/300",
+      "imageHint": "woman developer"
+    }
+  ]
 }
