@@ -3,8 +3,8 @@
     {
       "id": "profile-pic",
       "description": "A professional headshot of Sai Varshini Donthireddy.",
-      "imageUrl": "https://i.postimg.cc/QFmZYyNx",
-      "imageHint": "woman developer"
+      "imageUrl": "https://picsum.photos/seed/dev/192/192",
+      "imageHint": "full stack"
     }
   ]
 }
