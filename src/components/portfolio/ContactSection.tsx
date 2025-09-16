@@ -20,9 +20,9 @@ export function ContactSection() {
     >
       <div className="relative group/section">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div className="relative grid lg:grid-cols-2 gap-12 animate-in fade-in-up">
+        <div className="relative grid max-w-3xl mx-auto animate-in fade-in-up">
           <div>
-            <h3 className="text-2xl font-bold mb-6">What I Can Build For You</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center">What I Can Build For You</h3>
             <div className="space-y-6">
               {portfolioData.whatICanBuild.map((item, index) => (
                 <div key={item.title} className="flex items-start gap-4" style={{ transitionDelay: `${index * 100}ms` }}>
@@ -37,32 +37,6 @@ export function ContactSection() {
               ))}
             </div>
           </div>
-          <Card>
-            <CardHeader>
-              <CardTitle>Project Inquiry</CardTitle>
-              <CardDescription>Fill out the form and I'll get back to you as soon as possible.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-4">
-                <Input placeholder="Your Name" />
-                <Input type="email" placeholder="Your Email" />
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Inquiry Type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="full-stack">Full Stack Web App</SelectItem>
-                    <SelectItem value="ai-ml">AI/ML Project</SelectItem>
-                    <SelectItem value="iot">IoT Solution</SelectItem>
-                    <SelectItem value="freelance">Freelance Inquiry</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Textarea placeholder="Tell me about your project..." rows={5} />
-                <Button type="submit" className="w-full" size="lg">Send Message</Button>
-              </form>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </Section>
