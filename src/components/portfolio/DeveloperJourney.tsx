@@ -1,7 +1,10 @@
+'use client';
+
 import { Section } from '@/components/portfolio/Section';
 import { portfolioData } from '@/lib/portfolio-data';
 import { GraduationCap, Briefcase, Ribbon, Laptop, Trophy } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 
 type JourneyItem = {
   title: string;
@@ -87,13 +90,57 @@ export function DeveloperJourney() {
     achievements: 'border-yellow-400/50',
   };
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer || !isAutoScrolling) return;
+
+    let scrollInterval: NodeJS.Timeout;
+
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      scrollInterval = setInterval(() => {
+        if (scrollContainer) {
+          const cardWidth = 320 + 32; // card width + space-x-8
+          const nextScrollLeft = scrollContainer.scrollLeft + cardWidth;
+          
+          if (nextScrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+            scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+          }
+        }
+      }, 3000);
+    }
+    
+    const stopAutoScroll = () => {
+      setIsAutoScrolling(false);
+      clearInterval(scrollInterval);
+    };
+
+    scrollContainer.addEventListener('mousedown', stopAutoScroll);
+    scrollContainer.addEventListener('touchstart', stopAutoScroll);
+
+    return () => {
+      clearInterval(scrollInterval);
+      if (scrollContainer) {
+        scrollContainer.removeEventListener('mousedown', stopAutoScroll);
+        scrollContainer.removeEventListener('touchstart', stopAutoScroll);
+      }
+    };
+  }, [isAutoScrolling]);
+
+
   return (
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
       <div className="relative group/section">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
         <div className="relative">
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10 mt-6" />
-          <div className="overflow-x-auto pb-8 -mb-8 horizontal-scrollbar">
+          <div ref={scrollContainerRef} className="overflow-x-auto pb-8 -mb-8 horizontal-scrollbar">
             <div className="flex space-x-8 snap-x-mandatory py-14">
               {journeyItems.map((item, index) => (
                 <div key={index} className="relative flex-shrink-0 w-80 snap-center animate-in fade-in-up pt-8" style={{ animationDelay: `${index * 150}ms`}}>
