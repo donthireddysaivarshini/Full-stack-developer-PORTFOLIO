@@ -91,17 +91,18 @@ export function DeveloperJourney() {
   };
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [isInteracted, setIsInteracted] = useState(false);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer) return;
+    if (!scrollContainer || isInteracted) return;
 
     let scrollInterval: NodeJS.Timeout | null = null;
+    let observer: IntersectionObserver | null = null;
 
     const startAutoScroll = () => {
       const isMobile = window.innerWidth < 768;
-      if (isMobile && isAutoScrolling) {
+      if (isMobile && !isInteracted) {
         scrollInterval = setInterval(() => {
           if (scrollContainer) {
             const cardWidth = 320 + 32; // card width (w-80) + space-x-8
@@ -121,13 +122,25 @@ export function DeveloperJourney() {
       if (scrollInterval) {
         clearInterval(scrollInterval);
       }
-      setIsAutoScrolling(false);
+      setIsInteracted(true);
     };
 
-    startAutoScroll();
+    observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          startAutoScroll();
+        } else {
+          if (scrollInterval) {
+            clearInterval(scrollInterval);
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(scrollContainer);
 
-    scrollContainer.addEventListener('touchstart', stopAutoScroll);
-    scrollContainer.addEventListener('mousedown', stopAutoScroll); // For desktop testing
+    scrollContainer.addEventListener('touchstart', stopAutoScroll, { once: true });
+    scrollContainer.addEventListener('mousedown', stopAutoScroll, { once: true }); // For desktop testing
 
     return () => {
       if (scrollInterval) {
@@ -137,8 +150,11 @@ export function DeveloperJourney() {
         scrollContainer.removeEventListener('touchstart', stopAutoScroll);
         scrollContainer.removeEventListener('mousedown', stopAutoScroll);
       }
+      if (observer && scrollContainer) {
+        observer.unobserve(scrollContainer);
+      }
     };
-  }, [isAutoScrolling]);
+  }, [isInteracted]);
 
 
   return (
