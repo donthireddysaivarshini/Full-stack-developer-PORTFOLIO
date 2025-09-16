@@ -73,16 +73,16 @@ export function DeveloperJourney() {
 
   const iconColorClasses = {
     education: 'text-green-400',
-    certification: 'text-blue-400',
     internship: 'text-purple-400',
+    certification: 'text-blue-400',
     projects: 'text-orange-400',
     achievements: 'text-yellow-400',
   };
 
   const borderColorClasses = {
     education: 'border-green-400/50',
-    certification: 'border-blue-400/50',
     internship: 'border-purple-400/50',
+    certification: 'border-blue-400/50',
     projects: 'border-orange-400/50',
     achievements: 'border-yellow-400/50',
   };
@@ -91,11 +91,11 @@ export function DeveloperJourney() {
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
       <div className="relative">
         <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10" />
-        <div className="overflow-x-auto pb-8 -mb-8">
+        <div className="overflow-x-auto pb-8 -mb-8 horizontal-scrollbar">
           <div className="flex space-x-8 snap-x-mandatory py-14">
             {journeyItems.map((item, index) => (
-              <div key={index} className="relative flex-shrink-0 w-80 snap-center animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
-                <div className="absolute left-1/2 -translate-x-1/2 -top-7">
+              <div key={index} className="relative flex-shrink-0 w-80 snap-center animate-in fade-in-up pt-8" style={{ animationDelay: `${index * 150}ms`}}>
+                <div className="absolute left-1/2 -translate-x-1/2 top-0">
                   <div className={`w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
                     <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
                   </div>

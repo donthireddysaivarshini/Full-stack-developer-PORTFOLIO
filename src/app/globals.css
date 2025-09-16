@@ -98,4 +98,21 @@ body {
     opacity: 1;
     transform: translateY(0) translateX(0) scale(1);
   }
+  .horizontal-scrollbar::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .horizontal-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  .horizontal-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  .horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
 }
