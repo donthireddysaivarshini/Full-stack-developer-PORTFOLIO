@@ -3,8 +3,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Section } from '@/components/portfolio/Section';
 import { portfolioData } from '@/lib/portfolio-data';
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
-import { ChartTooltipContent } from '@/components/ui/chart';
 
 type SkillCategory = keyof typeof portfolioData.skills;
 
@@ -12,14 +10,14 @@ const SkillChart = ({ category, title, animation, delay }: { category: SkillCate
   const skills = portfolioData.skills[category];
 
   return (
-    <Card className={animation} style={{ transitionDelay: `${delay}ms` }}>
+    <Card className={`animate-in ${animation}`} style={{ transitionDelay: `${delay}ms` }}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {skills.map(skill => (
-            <div key={skill.name} className="space-y-1">
+          {skills.map((skill, index) => (
+            <div key={skill.name} className="space-y-1 animate-in pop-up" style={{ transitionDelay: `${index * 50}ms` }}>
               <div className="flex justify-between items-center text-sm">
                 <div className="flex items-center gap-2 font-medium">
                   <skill.icon className="h-4 w-4 text-muted-foreground" />
@@ -48,7 +46,6 @@ export function SkillsSection() {
       id="skills"
       title="Technical Skills"
       description="My proficiency across various technologies in the full stack ecosystem."
-      animation="fade-in-up"
     >
       <div className="grid md:grid-cols-2 gap-8">
         <SkillChart category="frontend" title="Frontend Development" animation="fade-in-left" delay={0} />

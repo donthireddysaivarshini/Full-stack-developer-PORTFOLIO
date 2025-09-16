@@ -12,7 +12,7 @@ import Link from 'next/link';
 export function ProjectsSection() {
 
   const ProjectCard = ({ project, index }: { project: (typeof portfolioData.projects)[0], index: number }) => (
-    <Card className="h-full flex flex-col overflow-hidden border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-primary/20 shadow-lg hover:-translate-y-2 fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
+    <Card className="h-full flex flex-col overflow-hidden border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-primary/20 shadow-lg hover:-translate-y-2 animate-in pop-up" style={{ transitionDelay: `${index * 100}ms` }}>
       <CardHeader>
         <CardTitle>{project.title}</CardTitle>
         <CardDescription className="mt-1">{project.year}</CardDescription>
@@ -52,7 +52,6 @@ export function ProjectsSection() {
       title="Full Stack Projects"
       description="A selection of applications I've built, showcasing my skills across the stack."
       className="bg-card/50"
-      animation="fade-in-left"
     >
       <Carousel
         opts={{

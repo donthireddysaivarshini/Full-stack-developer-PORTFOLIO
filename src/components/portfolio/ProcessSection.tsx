@@ -8,11 +8,10 @@ export function ProcessSection() {
       id="process"
       title="My Development Process"
       description="A structured and agile approach to ensure quality, scalability, and timely delivery of projects."
-      animation="fade-in-up"
     >
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
         {portfolioData.developmentProcess.map((step, index) => (
-          <div key={step.title} className="relative flex flex-col items-center gap-4 group fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
+          <div key={step.title} className="relative flex flex-col items-center gap-4 group animate-in fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
             <div className="w-20 h-20 rounded-full bg-card border-2 border-border flex items-center justify-center transition-colors duration-300 group-hover:border-primary">
               <step.icon className="w-8 h-8 text-muted-foreground transition-colors duration-300 group-hover:text-primary" />
             </div>

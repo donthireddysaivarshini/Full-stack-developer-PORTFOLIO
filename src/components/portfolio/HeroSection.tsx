@@ -23,16 +23,16 @@ export function HeroSection() {
     <section id="hero" className="relative overflow-hidden">
       <div className="container relative z-10 grid items-center min-h-[calc(100vh-4rem)] py-20">
         <div className="flex flex-col gap-6 text-center items-center">
-          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter animate-in fade-in-up" style={{ transitionDelay: '0ms' }}>
             {portfolioData.name}
           </h1>
-          <p className="text-xl md:text-2xl text-primary font-code h-8">
+          <p className="text-xl md:text-2xl text-primary font-code h-8 animate-in fade-in-up" style={{ transitionDelay: '200ms' }}>
             <AnimatedTyping strings={portfolioData.subtitles} />
           </p>
-          <p className="max-w-xl text-muted-foreground">
+          <p className="max-w-xl text-muted-foreground animate-in fade-in-up" style={{ transitionDelay: '400ms' }}>
             A versatile full stack developer with a passion for building robust and scalable applications from end-to-end.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center animate-in fade-in-up" style={{ transitionDelay: '600ms' }}>
             <Button size="lg" asChild>
               <a href="#projects">View My Work</a>
             </Button>

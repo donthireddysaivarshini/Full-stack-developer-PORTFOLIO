@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Section } from '@/components//portfolio/Section';
+import { Section } from '@/components/portfolio/Section';
 import { portfolioData } from '@/lib/portfolio-data';
 import { Trophy, Package, GraduationCap, Book, LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -18,10 +18,9 @@ export function AchievementsSection() {
       title="Achievements & Recognition"
       description="Milestones and accomplishments that mark my journey as a developer."
       className="bg-card/50"
-      animation="fade-in-up"
     >
       <div className="grid lg:grid-cols-2 gap-8">
-        <Card className="border-gold/50 fade-in-left">
+        <Card className="border-gold/50 animate-in pop-up">
           <CardHeader>
             <CardTitle className="text-gold">Technical Achievements</CardTitle>
           </CardHeader>
@@ -29,7 +28,7 @@ export function AchievementsSection() {
             {portfolioData.achievements.technical.map((ach, index) => {
               const Icon = iconMap[ach.icon];
               return (
-                <div key={ach.title} className="flex items-start gap-4 fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
+                <div key={ach.title} className="flex items-start gap-4">
                   <div className="p-2 bg-gold/10 rounded-full">
                     <Icon className="w-5 h-5 text-gold" />
                   </div>
@@ -42,7 +41,7 @@ export function AchievementsSection() {
             })}
           </div>
         </Card>
-        <Card className="border-accent/50 fade-in-right">
+        <Card className="border-accent/50 animate-in pop-up" style={{ transitionDelay: '200ms' }}>
           <CardHeader>
             <CardTitle className="text-accent">Academic Excellence</CardTitle>
           </CardHeader>
@@ -50,7 +49,7 @@ export function AchievementsSection() {
             {portfolioData.achievements.academic.map((ach, index) => {
               const Icon = iconMap[ach.icon];
               return (
-                <div key={ach.title} className="flex items-start gap-4 fade-in-up" style={{ transitionDelay: `${index * 100}ms` }}>
+                <div key={ach.title} className="flex items-start gap-4">
                   <div className="p-2 bg-accent/10 rounded-full">
                     <Icon className="w-5 h-5 text-accent" />
                   </div>
