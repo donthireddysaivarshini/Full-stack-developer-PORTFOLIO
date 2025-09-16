@@ -8,20 +8,14 @@ import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Section } from '@/components/portfolio/Section';
 import { portfolioData } from '@/lib/portfolio-data';
-import { Github, ExternalLink, Sparkles } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-type ProjectsSectionProps = {
-  recommendedProjects: string[];
-};
-
-export function ProjectsSection({ recommendedProjects }: ProjectsSectionProps) {
-  const isRecommended = (title: string) => recommendedProjects.includes(title);
+export function ProjectsSection() {
 
   const ProjectCard = ({ project }: { project: (typeof portfolioData.projects)[0] }) => (
     <Card className={cn(
-      "h-full flex flex-col overflow-hidden transition-all duration-300",
-      isRecommended(project.title) && "border-primary shadow-lg shadow-primary/20 ring-2 ring-primary"
+      "h-full flex flex-col overflow-hidden transition-all duration-300"
     )}>
       <CardHeader className="relative">
         <Image
@@ -32,11 +26,6 @@ export function ProjectsSection({ recommendedProjects }: ProjectsSectionProps) {
           className="w-full h-48 object-cover"
           data-ai-hint={project.imageHint}
         />
-        {isRecommended(project.title) && (
-          <Badge variant="default" className="absolute top-4 right-4 bg-primary text-primary-foreground">
-            <Sparkles className="mr-2 h-4 w-4" /> Recommended
-          </Badge>
-        )}
       </CardHeader>
       <CardContent className="flex-grow">
         <CardTitle>{project.title}</CardTitle>
