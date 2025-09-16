@@ -4,7 +4,7 @@ import { Section } from '@/components/portfolio/Section';
 import { portfolioData } from '@/lib/portfolio-data';
 import { GraduationCap, Briefcase, Ribbon, Laptop, Trophy } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 type JourneyItem = {
   title: string;
@@ -20,10 +20,10 @@ export function DeveloperJourney() {
   const internshipItem = portfolioData.experience[0];
   const nptelCert = portfolioData.education.find(e => e.degree.includes('NPTEL'));
   
-  const journeyItems: JourneyItem[] = [];
+  const baseJourneyItems: JourneyItem[] = [];
 
   if (educationItem) {
-    journeyItems.push({
+    baseJourneyItems.push({
       title: educationItem.degree,
       subtitle: educationItem.institution,
       period: educationItem.period,
@@ -34,7 +34,7 @@ export function DeveloperJourney() {
   }
   
   if (internshipItem) {
-    journeyItems.push({
+    baseJourneyItems.push({
       title: internshipItem.role,
       subtitle: internshipItem.company,
       period: internshipItem.period,
@@ -45,7 +45,7 @@ export function DeveloperJourney() {
   }
 
   if (nptelCert) {
-    journeyItems.push({
+    baseJourneyItems.push({
       title: nptelCert.degree,
       subtitle: nptelCert.institution,
       period: nptelCert.period,
@@ -55,7 +55,7 @@ export function DeveloperJourney() {
     });
   }
 
-  journeyItems.push({
+  baseJourneyItems.push({
     title: 'Key Projects',
     subtitle: `${portfolioData.projects.length} Projects Built`,
     period: '2024-2025',
@@ -64,7 +64,7 @@ export function DeveloperJourney() {
     type: 'projects' as const,
   });
 
-  journeyItems.push({
+  baseJourneyItems.push({
     title: 'Key Achievements',
     subtitle: 'HSBC Hackathon Finalist',
     period: '2025',
@@ -73,6 +73,8 @@ export function DeveloperJourney() {
     type: 'achievements' as const,
   });
 
+  // Duplicate items for a seamless loop
+  const journeyItems = [...baseJourneyItems, ...baseJourneyItems];
 
   const iconColorClasses = {
     education: 'text-green-400',
@@ -90,83 +92,16 @@ export function DeveloperJourney() {
     achievements: 'border-yellow-400/50',
   };
 
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isInteracted, setIsInteracted] = useState(false);
-
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer || isInteracted) return;
-
-    let scrollInterval: NodeJS.Timeout | null = null;
-    let observer: IntersectionObserver | null = null;
-
-    const startAutoScroll = () => {
-      const isMobile = window.innerWidth < 768;
-      if (isMobile && !isInteracted) {
-        scrollInterval = setInterval(() => {
-          if (scrollContainer) {
-            const cardWidth = 320 + 32; // card width (w-80) + space-x-8
-            const isAtEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
-
-            if (isAtEnd) {
-              scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-              scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            }
-          }
-        }, 3000);
-      }
-    };
-    
-    const stopAutoScroll = () => {
-      if (scrollInterval) {
-        clearInterval(scrollInterval);
-      }
-      setIsInteracted(true);
-    };
-
-    observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          startAutoScroll();
-        } else {
-          if (scrollInterval) {
-            clearInterval(scrollInterval);
-          }
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(scrollContainer);
-
-    scrollContainer.addEventListener('touchstart', stopAutoScroll, { once: true });
-    scrollContainer.addEventListener('mousedown', stopAutoScroll, { once: true }); // For desktop testing
-
-    return () => {
-      if (scrollInterval) {
-        clearInterval(scrollInterval);
-      }
-      if (scrollContainer) {
-        scrollContainer.removeEventListener('touchstart', stopAutoScroll);
-        scrollContainer.removeEventListener('mousedown', stopAutoScroll);
-      }
-      if (observer && scrollContainer) {
-        observer.unobserve(scrollContainer);
-      }
-    };
-  }, [isInteracted]);
-
-
   return (
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
       <div className="relative group/section">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div className="relative">
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0,hsl(var(--background))_10%,hsl(var(--background))_90%,transparent_100%)]">
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10 mt-6" />
-          <div ref={scrollContainerRef} className="overflow-x-auto pb-8 -mb-8 horizontal-scrollbar">
-            <div className="flex space-x-8 snap-x-mandatory py-14">
+          <div className="w-max">
+            <div className="flex w-max space-x-8 py-14 scroller">
               {journeyItems.map((item, index) => (
-                <div key={index} className="relative flex-shrink-0 w-80 snap-center animate-in fade-in-up pt-8" style={{ animationDelay: `${index * 150}ms`}}>
+                <div key={index} className="relative flex-shrink-0 w-80 pt-8" style={{ animationDelay: `${index * 150}ms`}}>
                   <div className="absolute left-1/2 -translate-x-1/2 top-0 mt-6">
                     <div className={`w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
                       <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
