@@ -78,22 +78,26 @@ export function DeveloperJourney() {
 
   return (
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
-      <div className="relative pt-8">
+      <div className="relative">
         <div className="absolute top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10" />
-        <div className="flex overflow-x-auto pb-8 space-x-8 snap-x-mandatory">
-          {journeyItems.map((item, index) => (
-            <div key={index} className="relative flex-shrink-0 w-80 snap-center animate-in fade-in-up mt-8" style={{ animationDelay: `${index * 150}ms`}}>
-              <div className={`absolute left-1/2 -translate-x-1/2 -top-12 w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
-                <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
+        <div className="overflow-x-auto pb-8 -mb-8">
+          <div className="flex space-x-8 snap-x-mandatory py-14">
+            {journeyItems.map((item, index) => (
+              <div key={index} className="relative flex-shrink-0 w-80 snap-center animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
+                <div className="absolute left-1/2 -translate-x-1/2 -top-7">
+                  <div className={`w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
+                    <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
+                  </div>
+                </div>
+                <div className={`h-full rounded-lg bg-card/50 p-6 border-t-4 ${borderColorClasses[item.type]} transition-all duration-300 hover:shadow-xl hover:-translate-y-2 pt-10`}>
+                  <p className="text-sm text-muted-foreground mb-1 text-center">{item.period}</p>
+                  <h3 className="font-bold text-lg text-foreground text-center">{item.title}</h3>
+                  <h4 className="font-semibold text-primary mb-3 text-center">{item.subtitle}</h4>
+                  <p className="text-sm text-muted-foreground text-center">{item.description}</p>
+                </div>
               </div>
-              <div className={`h-full rounded-lg bg-card/50 p-6 border-t-4 ${borderColorClasses[item.type]} transition-all duration-300 hover:shadow-xl hover:-translate-y-2`}>
-                <p className="text-sm text-muted-foreground mb-1">{item.period}</p>
-                <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
-                <h4 className="font-semibold text-primary mb-3">{item.subtitle}</h4>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </Section>
