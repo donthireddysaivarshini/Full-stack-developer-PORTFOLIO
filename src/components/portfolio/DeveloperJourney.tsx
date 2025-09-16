@@ -96,7 +96,7 @@ export function DeveloperJourney() {
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
       <div className="relative group/section">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0,hsl(var(--background))_10%,hsl(var(--background))_90%,transparent_100%)]">
+        <div className="relative w-full overflow-x-auto horizontal-scrollbar [mask-image:linear-gradient(to_right,transparent_0,hsl(var(--background))_10%,hsl(var(--background))_90%,transparent_100%)]">
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10 mt-6" />
           <div className="w-max">
             <div className="flex w-max space-x-8 py-14 scroller">

@@ -20,7 +20,7 @@ export function ProjectsSection() {
     >
       <div className="relative group/section">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0,hsl(var(--background))_10%,hsl(var(--background))_90%,transparent_100%)]">
+        <div className="relative w-full overflow-x-auto horizontal-scrollbar [mask-image:linear-gradient(to_right,transparent_0,hsl(var(--background))_10%,hsl(var(--background))_90%,transparent_100%)]">
           <div className="w-max">
             <div className="flex w-max space-x-8 py-4 scroller-projects">
               {allProjects.map((project, index) => (
