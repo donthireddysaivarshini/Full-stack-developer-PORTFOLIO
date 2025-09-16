@@ -13,7 +13,7 @@ export function ExperienceSection() {
     >
       <div className="max-w-4xl mx-auto">
         {portfolioData.experience.map((exp) => (
-          <Card key={exp.company} className="overflow-hidden">
+          <Card key={exp.company} className="overflow-hidden border-primary/20 hover:border-primary/50 transition-colors duration-300">
             <div className="grid md:grid-cols-3">
               <div className="p-6 bg-muted/30 flex flex-col justify-center items-center md:items-start text-center md:text-left">
                 <exp.icon className="w-10 h-10 text-primary mb-4" />
