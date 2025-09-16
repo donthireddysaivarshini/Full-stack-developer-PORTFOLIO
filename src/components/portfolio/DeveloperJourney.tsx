@@ -95,40 +95,47 @@ export function DeveloperJourney() {
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer || !isAutoScrolling) return;
+    if (!scrollContainer) return;
 
-    let scrollInterval: NodeJS.Timeout;
+    let scrollInterval: NodeJS.Timeout | null = null;
 
-    const isMobile = window.innerWidth < 768;
+    const startAutoScroll = () => {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile && isAutoScrolling) {
+        scrollInterval = setInterval(() => {
+          if (scrollContainer) {
+            const cardWidth = 320 + 32; // card width (w-80) + space-x-8
+            const isAtEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
 
-    if (isMobile) {
-      scrollInterval = setInterval(() => {
-        if (scrollContainer) {
-          const cardWidth = 320 + 32; // card width + space-x-8
-          const nextScrollLeft = scrollContainer.scrollLeft + cardWidth;
-          
-          if (nextScrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-            scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            if (isAtEnd) {
+              scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+              scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
           }
-        }
-      }, 3000);
-    }
+        }, 3000);
+      }
+    };
     
     const stopAutoScroll = () => {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+      }
       setIsAutoScrolling(false);
-      clearInterval(scrollInterval);
     };
 
-    scrollContainer.addEventListener('mousedown', stopAutoScroll);
+    startAutoScroll();
+
     scrollContainer.addEventListener('touchstart', stopAutoScroll);
+    scrollContainer.addEventListener('mousedown', stopAutoScroll); // For desktop testing
 
     return () => {
-      clearInterval(scrollInterval);
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+      }
       if (scrollContainer) {
-        scrollContainer.removeEventListener('mousedown', stopAutoScroll);
         scrollContainer.removeEventListener('touchstart', stopAutoScroll);
+        scrollContainer.removeEventListener('mousedown', stopAutoScroll);
       }
     };
   }, [isAutoScrolling]);
