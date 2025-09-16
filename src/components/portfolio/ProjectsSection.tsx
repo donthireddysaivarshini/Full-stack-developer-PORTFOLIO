@@ -12,7 +12,7 @@ import Link from 'next/link';
 export function ProjectsSection() {
 
   const ProjectCard = ({ project }: { project: (typeof portfolioData.projects)[0] }) => (
-    <Card className="h-full flex flex-col overflow-hidden transition-all duration-300">
+    <Card className="h-full flex flex-col overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2">
       <CardHeader>
         <CardTitle>{project.title}</CardTitle>
         <CardDescription className="mt-1">{project.year}</CardDescription>
