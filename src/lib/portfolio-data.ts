@@ -1,3 +1,4 @@
+
 import {
   Code,
   Database,
@@ -117,7 +118,7 @@ export const portfolioData = {
       title: 'Deal Scraper - Data Aggregator',
       year: '2024',
       description: 'A platform for aggregating e-commerce deals. Features a user-friendly browsing interface, an advanced web scraping engine, and real-time data pipeline.',
-      techStack: ['Python', 'Selenium', 'Flask', 'React', 'MySQL'],
+      techStack: ['Python', 'Selenium', 'BeautifulSoup', 'Streamlit'],
       liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_infosysspringboardinternship-pythonprojects-activity-7353692116599910400-664U?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Deal_Scraper',
       image: 'https://picsum.photos/seed/deals/600/400',
@@ -128,7 +129,7 @@ export const portfolioData = {
       title: 'Job Scraper',
       year: '2025',
       description: 'A full stack job board that scrapes and aggregates listings from multiple platformsIncludes job matching, filtering, and tracking features, with a functional frontend.',
-      techStack: ['Python', 'BeautifulSoup', 'Django', 'React', 'PostgreSQL'],
+      techStack: ['Python', 'BeautifulSoup', 'Streamlit'],
       liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_built-a-smarter-way-to-discover-behance-activity-7354026177709182976-kbhX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Job-Scraper',
       image: 'https://picsum.photos/seed/jobs/600/400',
@@ -161,7 +162,7 @@ export const portfolioData = {
       title: 'Comfort Companion - AI Chatbot',
       year: '2024',
       description: 'An AI chatbot platform providing personalized assistance and emotional support. Features an interactive chat interface and a natural language processing backend.',
-      techStack: ['AI', 'NLP', 'Python', 'Flask', 'WebSocket'],
+      techStack: ['AI', 'NLP', 'Python', 'TypeScript', 'React', 'Next.js', 'Genkit'],
       liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_of-course-it-doesnt-actually-talk-like-activity-7362544100404822017-APHM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Comfort_Companion',
       image: 'https://picsum.photos/seed/chatbot/600/400',
