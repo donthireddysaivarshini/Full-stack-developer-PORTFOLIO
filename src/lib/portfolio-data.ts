@@ -58,7 +58,7 @@ export const portfolioData = {
   education: [
     {
       degree: 'B.Tech in CSE (IoT)',
-      institution: 'Vellore Institute of Technology',
+      institution: 'Malla Reddy Engineering College For Women',
       period: '2022 – 2026',
       details: 'CGPA: 9.11. Relevant Coursework: Data Structures, Algorithms, Web Technologies, IoT integration.',
       icon: GraduationCap,
@@ -67,7 +67,7 @@ export const portfolioData = {
       degree: 'NPTEL Data Structures & Algorithms',
       institution: 'Certification',
       period: '2025',
-      details: 'Completed certification to deepen understanding of core computer science principles.',
+      details: 'Completed certification to deepen understanding of core data structures and algorithms in python.',
       icon: Star,
     },
     {
@@ -127,7 +127,7 @@ export const portfolioData = {
       tier: 1,
       title: 'Job Scraper',
       year: '2025',
-      description: 'A full stack job board that scrapes and aggregates listings from multiple platforms like LinkedIn and Indeed. Includes job matching, filtering, and tracking features, with a functional frontend.',
+      description: 'A full stack job board that scrapes and aggregates listings from multiple platformsIncludes job matching, filtering, and tracking features, with a functional frontend.',
       techStack: ['Python', 'BeautifulSoup', 'Django', 'React', 'PostgreSQL'],
       liveDemo: 'https://www.linkedin.com/posts/saivarshini-donthireddy_built-a-smarter-way-to-discover-behance-activity-7354026177709182976-kbhX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEt6PFsBaskPzve_4TPMTCg1SDQWjaZukKM',
       github: 'https://github.com/donthireddysaivarshini/Job-Scraper',
@@ -250,4 +250,5 @@ export const portfolioData = {
 
 export type PortfolioData = typeof portfolioData;
 
+    
     
