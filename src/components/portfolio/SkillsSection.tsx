@@ -12,7 +12,7 @@ const SkillChart = ({ category, title, animation, delay }: { category: SkillCate
   return (
     <Card className={`animate-in ${animation} bg-background/50`} style={{ transitionDelay: `${delay}ms` }}>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-xl md:text-2xl">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">

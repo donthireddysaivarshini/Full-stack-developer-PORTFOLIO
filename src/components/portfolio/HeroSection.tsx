@@ -26,20 +26,21 @@ export function HeroSection() {
       <div className="container relative z-10 grid items-center min-h-[calc(100vh-4rem)] py-20">
         
         {/* Floating Icons */}
-        <Icons.react className="absolute top-[15%] left-[10%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '1s' }} />
-        <Icons.python className="absolute top-[20%] right-[15%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '3s' }}/>
-        <Database className="absolute bottom-[25%] left-[20%] w-8 h-8 text-primary/20 animate-float opacity-50" style={{ animationDelay: '2s' }} />
-        <Server className="absolute bottom-[20%] right-[10%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '4s' }} />
-        <BrainCircuit className="absolute top-[55%] left-[12%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '5s' }} />
-        <Icons.java className="absolute top-[40%] right-[8%] w-9 h-9 text-primary/20 animate-float opacity-50" style={{ animationDelay: '6s' }} />
-        <Icons.github className="absolute bottom-[15%] left-[5%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '7s' }} />
-        <Icons.tailwind className="absolute top-[60%] right-[20%] w-11 h-11 text-primary/20 animate-float opacity-50" style={{ animationDelay: '1.5s' }} />
-        <Icons.css className="absolute top-[75%] left-[15%] w-9 h-9 text-primary/20 animate-float opacity-50" style={{ animationDelay: '2.5s' }} />
-        <Icons.streamlit className="absolute bottom-[40%] right-[25%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '3.5s' }} />
-        <Icons.selenium className="absolute top-[30%] left-[25%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '4.5s' }} />
-        <Icons.mongodb className="absolute bottom-[50%] left-[30%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '5.5s' }} />
-        <Icons.beautifulsoup className="absolute top-[70%] right-[5%] w-9 h-9 text-primary/20 animate-float opacity-50" style={{ animationDelay: '6.5s' }} />
-
+        <div className="hidden md:block">
+          <Icons.react className="absolute top-[15%] left-[10%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '1s' }} />
+          <Icons.python className="absolute top-[20%] right-[15%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '3s' }}/>
+          <Database className="absolute bottom-[25%] left-[20%] w-8 h-8 text-primary/20 animate-float opacity-50" style={{ animationDelay: '2s' }} />
+          <Server className="absolute bottom-[20%] right-[10%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '4s' }} />
+          <BrainCircuit className="absolute top-[55%] left-[12%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '5s' }} />
+          <Icons.java className="absolute top-[40%] right-[8%] w-9 h-9 text-primary/20 animate-float opacity-50" style={{ animationDelay: '6s' }} />
+          <Icons.github className="absolute bottom-[15%] left-[5%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '7s' }} />
+          <Icons.tailwind className="absolute top-[60%] right-[20%] w-11 h-11 text-primary/20 animate-float opacity-50" style={{ animationDelay: '1.5s' }} />
+          <Icons.css className="absolute top-[75%] left-[15%] w-9 h-9 text-primary/20 animate-float opacity-50" style={{ animationDelay: '2.5s' }} />
+          <Icons.streamlit className="absolute bottom-[40%] right-[25%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '3.5s' }} />
+          <Icons.selenium className="absolute top-[30%] left-[25%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '4.5s' }} />
+          <Icons.mongodb className="absolute bottom-[50%] left-[30%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '5.5s' }} />
+          <Icons.beautifulsoup className="absolute top-[70%] right-[5%] w-9 h-9 text-primary/20 animate-float opacity-50" style={{ animationDelay: '6.5s' }} />
+        </div>
 
         <div className="flex flex-col gap-6 text-center items-center">
           <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter animate-in fade-in-up" style={{ transitionDelay: '0ms' }}>
