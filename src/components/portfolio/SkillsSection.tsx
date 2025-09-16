@@ -52,11 +52,14 @@ export function SkillsSection() {
       description="My proficiency across various technologies in the full stack ecosystem."
       className="bg-card/50"
     >
-      <div className="grid md:grid-cols-2 gap-8">
-        <SkillChart category="frontend" title="Frontend Development" animation="fade-in-left" delay={0} />
-        <SkillChart category="backend" title="Backend Development" animation="fade-in-right" delay={100} />
-        <SkillChart category="databasesAndDevOps" title="Databases & DevOps" animation="fade-in-left" delay={200} />
-        <SkillChart category="emerging" title="Emerging Technologies" animation="fade-in-right" delay={300} />
+      <div className="relative group/section">
+        <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
+        <div className="relative grid md:grid-cols-2 gap-8">
+          <SkillChart category="frontend" title="Frontend Development" animation="fade-in-left" delay={0} />
+          <SkillChart category="backend" title="Backend Development" animation="fade-in-right" delay={100} />
+          <SkillChart category="databasesAndDevOps" title="Databases & DevOps" animation="fade-in-left" delay={200} />
+          <SkillChart category="emerging" title="Emerging Technologies" animation="fade-in-right" delay={300} />
+        </div>
       </div>
     </Section>
   );
