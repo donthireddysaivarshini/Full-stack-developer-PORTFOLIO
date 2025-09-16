@@ -51,7 +51,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center gap-2">
           <Code className="h-6 w-6 text-primary" />
-          <span className="font-bold hidden sm:inline-block">VersaStack Portfolio</span>
+          <span className="font-bold hidden sm:inline-block">Sai Varshini Portfolio</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -73,7 +73,7 @@ export function Header() {
             <SheetContent side="left" className="pr-0">
               <Link href="/" className="mr-6 flex items-center gap-2 mb-8">
                 <Code className="h-6 w-6 text-primary" />
-                <span className="font-bold">VersaStack</span>
+                <span className="font-bold">Sai Varshini Portfolio</span>
               </Link>
               <div className="flex flex-col gap-6">
                 <NavContent />
