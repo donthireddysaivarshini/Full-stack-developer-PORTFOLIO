@@ -25,7 +25,7 @@ export function ProjectsSection() {
             <div className="flex w-max space-x-8 py-4 scroller-projects">
               {allProjects.map((project, index) => (
                 <div key={index} className="flex-shrink-0 w-96">
-                  <Card className="h-full flex flex-col overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-primary/20 shadow-md hover:-translate-y-1">
+                  <Card className="h-full flex flex-col overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.8)] hover:-translate-y-1">
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
                       <CardDescription className="mt-1">{project.year}</CardDescription>
