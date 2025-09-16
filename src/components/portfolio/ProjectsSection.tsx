@@ -17,20 +17,12 @@ export function ProjectsSection() {
     <Card className={cn(
       "h-full flex flex-col overflow-hidden transition-all duration-300"
     )}>
-      <CardHeader className="relative">
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={600}
-          height={400}
-          className="w-full h-48 object-cover"
-          data-ai-hint={project.imageHint}
-        />
-      </CardHeader>
-      <CardContent className="flex-grow">
+      <CardHeader>
         <CardTitle>{project.title}</CardTitle>
         <CardDescription className="mt-1">{project.year}</CardDescription>
-        <p className="mt-4 text-sm text-muted-foreground">{project.description}</p>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p className="text-sm text-muted-foreground">{project.description}</p>
       </CardContent>
       <CardFooter className="flex-col items-start gap-4">
         <div className="flex flex-wrap gap-2">
