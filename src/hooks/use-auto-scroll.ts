@@ -16,6 +16,7 @@ export function useAutoScroll<T extends HTMLElement>({
   const isHovering = useRef(false);
   const isManuallyScrolling = useRef(false);
   const manualScrollTimeoutRef = useRef<NodeJS.Timeout>();
+  const direction = useRef(1); // 1 for right, -1 for left
 
   const loop = useCallback(() => {
     if (!containerRef.current || isHovering.current || isManuallyScrolling.current) {
@@ -24,22 +25,19 @@ export function useAutoScroll<T extends HTMLElement>({
     }
 
     const container = containerRef.current;
-    const content = container.firstElementChild as HTMLElement;
-
-    if (content) {
-      // The total width is the width of the original content
-      const contentWidth = content.scrollWidth / 2;
-      container.scrollLeft += speed;
-
-      // If we've scrolled past the original content, loop back to the start
-      if (container.scrollLeft >= contentWidth) {
-        container.scrollLeft = 0;
-      }
+    
+    // Check if we've hit the end or the beginning
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+      direction.current = -1; // Change direction to left
+    } else if (container.scrollLeft <= 1) {
+      direction.current = 1; // Change direction to right
     }
+
+    container.scrollLeft += speed * direction.current;
 
     animationFrameRef.current = requestAnimationFrame(loop);
   }, [speed]);
-  
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -61,7 +59,7 @@ export function useAutoScroll<T extends HTMLElement>({
         clearTimeout(manualScrollTimeoutRef.current);
         manualScrollTimeoutRef.current = setTimeout(() => {
             isManuallyScrolling.current = false;
-        }, 100); // Consider manual scroll for 100ms after the last scroll event
+        }, 150); // Pause animation for a bit after manual scroll
     };
 
 

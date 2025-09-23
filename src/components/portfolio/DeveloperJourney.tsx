@@ -120,10 +120,6 @@ export function DeveloperJourney() {
             {journeyItems.map((item, index) => (
               <JourneyCard key={index} item={item} />
             ))}
-            {/* Duplicate for infinite scroll effect */}
-            {journeyItems.map((item, index) => (
-              <JourneyCard key={`duplicate-${index}`} item={item} />
-            ))}
           </div>
         </div>
       </div>

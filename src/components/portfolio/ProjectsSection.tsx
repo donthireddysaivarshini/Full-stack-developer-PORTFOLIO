@@ -64,10 +64,6 @@ export function ProjectsSection() {
             {allProjects.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
-            {/* Duplicate for infinite scroll effect */}
-            {allProjects.map((project, index) => (
-              <ProjectCard key={`duplicate-${index}`} project={project} />
-            ))}
           </div>
         </div>
       </div>
