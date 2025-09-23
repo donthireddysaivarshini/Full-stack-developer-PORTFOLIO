@@ -34,7 +34,7 @@ const JourneyCard = ({ item }: { item: JourneyItem }) => {
   };
 
   return (
-    <div className="relative flex-shrink-0 w-72 md:w-80 pt-8">
+    <div className="relative flex-shrink-0 w-64 md:w-80 pt-8">
       <div className="absolute left-1/2 -translate-x-1/2 top-0 mt-6">
         <div className={`w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
           <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
@@ -52,7 +52,7 @@ const JourneyCard = ({ item }: { item: JourneyItem }) => {
 
 export function DeveloperJourney() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  useAutoScroll(scrollRef, { speed: 1.5 });
+  useAutoScroll(scrollRef, { speed: 1 });
 
   const educationItem = portfolioData.education.find(e => e.degree.includes('B.Tech'));
   const internshipItem = portfolioData.experience[0];

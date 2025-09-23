@@ -11,7 +11,7 @@ import { useRef } from 'react';
 import { useAutoScroll } from '@/hooks/use-auto-scroll';
 
 const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] }) => (
-  <div className="flex-shrink-0 w-80 md:w-96">
+  <div className="flex-shrink-0 w-72 md:w-80">
     <Card className="h-full flex flex-col overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.8)] hover:-translate-y-1">
       <CardHeader>
         <CardTitle>{project.title}</CardTitle>
@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] })
 
 export function ProjectsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  useAutoScroll(scrollRef, { speed: 1.5 });
+  useAutoScroll(scrollRef, { speed: 1 });
 
   const allProjects = portfolioData.projects;
 
