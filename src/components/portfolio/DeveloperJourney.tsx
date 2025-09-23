@@ -108,7 +108,7 @@ export function DeveloperJourney() {
     type: 'achievements' as const,
   });
 
-  const scrollerRef = useAutoScroll({ speed: 0.5 });
+  const scrollerRef = useAutoScroll({ speed: 1.5 });
 
   return (
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
