@@ -153,7 +153,7 @@ export const portfolioData = {
       description: 'An IoT full stack solution for real-time anomaly detection using a Raspberry Pi and TensorFlow Lite. The system includes a Python backend for video processing and alerts.',
       techStack: ['IoT', 'Raspberry Pi', 'TensorFlow Lite', 'Python', 'OpenCV'],
       liveDemo: '#',
-      github: 'https://github.com/donthireddysaivarshini/AI-Powered-Smart-Surveillance',
+      github: '#',
       image: 'https://picsum.photos/seed/surveillance/600/400',
       imageHint: 'security camera'
     },
