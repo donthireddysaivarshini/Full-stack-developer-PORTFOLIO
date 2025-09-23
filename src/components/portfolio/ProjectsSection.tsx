@@ -48,7 +48,7 @@ const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] })
 
 export function ProjectsSection() {
   const allProjects = portfolioData.projects;
-  const scrollerRef = useAutoScroll({ speed: 1.5 });
+  const scrollerRef = useAutoScroll({ speed: 2.5 });
 
   return (
     <Section
