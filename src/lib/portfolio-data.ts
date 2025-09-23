@@ -175,7 +175,7 @@ export const portfolioData = {
       description: 'An ML web service to detect fraudulent financial transactions. The system uses a Random Forest Classifier with 95% accuracy, exposed via a RESTful API.',
       techStack: ['Machine Learning', 'Scikit-learn', 'Pandas', 'Flask', 'REST API'],
       liveDemo: '#',
-      github: '#',
+      github: 'https://github.com/donthireddysaivarshini/Fraud_Detection.git',
       image: 'https://picsum.photos/seed/fraud/600/400',
       imageHint: 'finance chart'
     }
@@ -252,4 +252,6 @@ export const portfolioData = {
 export type PortfolioData = typeof portfolioData;
 
     
+    
+
     
