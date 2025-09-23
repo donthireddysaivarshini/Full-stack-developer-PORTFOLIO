@@ -5,7 +5,6 @@ import { portfolioData } from '@/lib/portfolio-data';
 import { GraduationCap, Briefcase, Ribbon, Laptop, Trophy } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import React from 'react';
-import { useAutoScroll } from '@/hooks/use-auto-scroll';
 
 type JourneyItem = {
   title: string;
@@ -108,17 +107,19 @@ export function DeveloperJourney() {
     type: 'achievements' as const,
   });
 
-  const scrollerRef = useAutoScroll({ speed: 7.5 });
 
   return (
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
       <div className="relative group/section animate-in fade-in-up">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div ref={scrollerRef} className="relative scroller horizontal-scrollbar">
+        <div className="relative scroller horizontal-scrollbar">
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10 mt-6" />
           <div className="scroller-inner py-14">
             {journeyItems.map((item, index) => (
               <JourneyCard key={index} item={item} />
+            ))}
+            {journeyItems.map((item, index) => (
+              <JourneyCard key={`duplicate-${index}`} item={item} />
             ))}
           </div>
         </div>

@@ -7,7 +7,6 @@ import { Section } from '@/components/portfolio/Section';
 import { portfolioData } from '@/lib/portfolio-data';
 import { Github, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
-import { useAutoScroll } from '@/hooks/use-auto-scroll';
 
 const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] }) => (
   <div className="flex-shrink-0 w-96">
@@ -48,7 +47,6 @@ const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] })
 
 export function ProjectsSection() {
   const allProjects = portfolioData.projects;
-  const scrollerRef = useAutoScroll({ speed: 7.5 });
 
   return (
     <Section
@@ -59,10 +57,13 @@ export function ProjectsSection() {
     >
       <div className="relative group/section animate-in fade-in-up">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div ref={scrollerRef} className="relative scroller horizontal-scrollbar">
+        <div className="relative scroller horizontal-scrollbar">
           <div className="scroller-inner">
             {allProjects.map((project, index) => (
               <ProjectCard key={index} project={project} />
+            ))}
+            {allProjects.map((project, index) => (
+              <ProjectCard key={`duplicate-${index}`} project={project} />
             ))}
           </div>
         </div>

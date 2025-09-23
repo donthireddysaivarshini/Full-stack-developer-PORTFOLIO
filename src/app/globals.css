@@ -120,5 +120,16 @@ body {
 
   .scroller-inner {
     @apply flex w-max gap-8 py-4;
+    animation: scroll 40s linear infinite;
+  }
+
+  .scroller:hover .scroller-inner {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateX(calc(-100% - 2rem));
+    }
   }
 }
