@@ -20,10 +20,10 @@ export function DeveloperJourney() {
   const internshipItem = portfolioData.experience[0];
   const nptelCert = portfolioData.education.find(e => e.degree.includes('NPTEL'));
   
-  const baseJourneyItems: JourneyItem[] = [];
+  const journeyItems: JourneyItem[] = [];
 
   if (educationItem) {
-    baseJourneyItems.push({
+    journeyItems.push({
       title: educationItem.degree,
       subtitle: educationItem.institution,
       period: educationItem.period,
@@ -34,7 +34,7 @@ export function DeveloperJourney() {
   }
   
   if (internshipItem) {
-    baseJourneyItems.push({
+    journeyItems.push({
       title: internshipItem.role,
       subtitle: internshipItem.company,
       period: internshipItem.period,
@@ -45,7 +45,7 @@ export function DeveloperJourney() {
   }
 
   if (nptelCert) {
-    baseJourneyItems.push({
+    journeyItems.push({
       title: nptelCert.degree,
       subtitle: nptelCert.institution,
       period: nptelCert.period,
@@ -55,7 +55,7 @@ export function DeveloperJourney() {
     });
   }
 
-  baseJourneyItems.push({
+  journeyItems.push({
     title: 'Key Projects',
     subtitle: `${portfolioData.projects.length} Projects Built`,
     period: '2024-2025',
@@ -64,7 +64,7 @@ export function DeveloperJourney() {
     type: 'projects' as const,
   });
 
-  baseJourneyItems.push({
+  journeyItems.push({
     title: 'Key Achievements',
     subtitle: 'HSBC Hackathon Finalist',
     period: '2025',
@@ -72,9 +72,6 @@ export function DeveloperJourney() {
     icon: Trophy,
     type: 'achievements' as const,
   });
-
-  // Duplicate items for a seamless loop
-  const journeyItems = [...baseJourneyItems, ...baseJourneyItems];
 
   const iconColorClasses = {
     education: 'text-green-400',
@@ -96,26 +93,24 @@ export function DeveloperJourney() {
     <Section id="journey" title="My Developer Journey" description="A timeline of my growth, from education to real-world impact.">
       <div className="relative group/section">
         <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div className="relative w-full overflow-x-auto horizontal-scrollbar [mask-image:linear-gradient(to_right,transparent_0,hsl(var(--background))_10%,hsl(var(--background))_90%,transparent_100%)]">
+        <div className="relative w-full overflow-x-auto horizontal-scrollbar pb-8 [mask-image:linear-gradient(to_right,transparent_0,hsl(var(--background))_10%,hsl(var(--background))_90%,transparent_100%)]">
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10 mt-6" />
-          <div className="w-max">
-            <div className="flex w-max space-x-8 py-14 scroller">
-              {journeyItems.map((item, index) => (
-                <div key={index} className="relative flex-shrink-0 w-80 pt-8" style={{ animationDelay: `${index * 150}ms`}}>
-                  <div className="absolute left-1/2 -translate-x-1/2 top-0 mt-6">
-                    <div className={`w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
-                      <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
-                    </div>
-                  </div>
-                  <div className={`h-full rounded-lg bg-card/50 p-6 border-t-4 ${borderColorClasses[item.type]} transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.8)] hover:-translate-y-2 pt-10`}>
-                    <p className="text-sm text-muted-foreground mb-1 text-center">{item.period}</p>
-                    <h3 className="font-bold text-lg text-foreground text-center">{item.title}</h3>
-                    <h4 className="font-semibold text-primary mb-3 text-center">{item.subtitle}</h4>
-                    <p className="text-sm text-muted-foreground text-center">{item.description}</p>
+          <div className="flex w-max space-x-8 py-14">
+            {journeyItems.map((item, index) => (
+              <div key={index} className="relative flex-shrink-0 w-80 pt-8 animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
+                <div className="absolute left-1/2 -translate-x-1/2 top-0 mt-6">
+                  <div className={`w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
+                    <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
                   </div>
                 </div>
-              ))}
-            </div>
+                <div className={`h-full rounded-lg bg-card/50 p-6 border-t-4 ${borderColorClasses[item.type]} transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.8)] hover:-translate-y-2 pt-10`}>
+                  <p className="text-sm text-muted-foreground mb-1 text-center">{item.period}</p>
+                  <h3 className="font-bold text-lg text-foreground text-center">{item.title}</h3>
+                  <h4 className="font-semibold text-primary mb-3 text-center">{item.subtitle}</h4>
+                  <p className="text-sm text-muted-foreground text-center">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -105,33 +105,4 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
-
-  .scroller {
-    animation: scroll-journey 40s linear infinite;
-  }
-  .scroller-projects {
-    animation: scroll-projects 60s linear infinite;
-  }
-
-  .scroller:hover, .scroller-projects:hover {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes scroll-journey {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-352px * 5));
-  }
-}
-
-@keyframes scroll-projects {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-416px * 7));
-  }
 }
