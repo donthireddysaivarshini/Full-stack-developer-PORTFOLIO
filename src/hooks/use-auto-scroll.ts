@@ -19,21 +19,21 @@ export function useAutoScroll<T extends HTMLElement>({
   const direction = useRef(1); // 1 for right, -1 for left
 
   const loop = useCallback(() => {
-    if (!containerRef.current || isHovering.current || isManuallyScrolling.current) {
+    if (isHovering.current || isManuallyScrolling.current) {
       animationFrameRef.current = requestAnimationFrame(loop);
       return;
     }
-
-    const container = containerRef.current;
-    
-    // Check if we've hit the end or the beginning
-    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
-      direction.current = -1; // Change direction to left
-    } else if (container.scrollLeft <= 1) {
-      direction.current = 1; // Change direction to right
+    if (containerRef.current) {
+        const container = containerRef.current;
+        
+        if (direction.current === 1 && container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+            direction.current = -1;
+        } else if (direction.current === -1 && container.scrollLeft <= 1) {
+            direction.current = 1;
+        }
+        
+        container.scrollLeft += speed * direction.current;
     }
-
-    container.scrollLeft += speed * direction.current;
 
     animationFrameRef.current = requestAnimationFrame(loop);
   }, [speed]);
@@ -42,49 +42,45 @@ export function useAutoScroll<T extends HTMLElement>({
     const container = containerRef.current;
     if (!container) return;
 
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleManualScroll = () => {
+        isManuallyScrolling.current = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            isManuallyScrolling.current = false;
+        }, 150); // Short delay after manual scroll to resume auto-scroll
+    };
+
     const handleMouseEnter = () => {
-      if (pauseOnHover) {
-        isHovering.current = true;
-      }
+        if (pauseOnHover) isHovering.current = true;
     };
 
     const handleMouseLeave = () => {
-      if (pauseOnHover) {
-        isHovering.current = false;
-      }
-    };
-    
-    const handleScroll = () => {
-        isManuallyScrolling.current = true;
-        clearTimeout(manualScrollTimeoutRef.current);
-        manualScrollTimeoutRef.current = setTimeout(() => {
-            isManuallyScrolling.current = false;
-        }, 150); // Pause animation for a bit after manual scroll
+        if (pauseOnHover) isHovering.current = false;
     };
 
-
+    container.addEventListener('scroll', handleManualScroll, { passive: true });
     if (pauseOnHover) {
-      container.addEventListener('mouseenter', handleMouseEnter);
-      container.addEventListener('mouseleave', handleMouseLeave);
+        container.addEventListener('mouseenter', handleMouseEnter);
+        container.addEventListener('mouseleave', handleMouseLeave);
     }
-    container.addEventListener('scroll', handleScroll, { passive: true });
-
+    
     animationFrameRef.current = requestAnimationFrame(loop);
 
     return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-      if (manualScrollTimeoutRef.current) {
-        clearTimeout(manualScrollTimeoutRef.current);
-      }
-      if (container) {
-        if (pauseOnHover) {
-            container.removeEventListener('mouseenter', handleMouseEnter);
-            container.removeEventListener('mouseleave', handleMouseLeave);
+        if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
         }
-        container.removeEventListener('scroll', handleScroll);
-      }
+        clearTimeout(scrollTimeout);
+        if (container) {
+            container.removeEventListener('scroll', handleManualScroll);
+            if (pauseOnHover) {
+                container.removeEventListener('mouseenter', handleMouseEnter);
+                container.removeEventListener('mouseleave', handleMouseLeave);
+            }
+        }
     };
   }, [loop, pauseOnHover]);
 
