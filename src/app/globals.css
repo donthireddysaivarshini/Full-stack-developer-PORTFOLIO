@@ -107,7 +107,7 @@ body {
   }
   
   .scroller {
-    @apply w-full overflow-hidden;
+    @apply w-full overflow-x-auto;
     -webkit-mask: linear-gradient(
       90deg,
       transparent,
