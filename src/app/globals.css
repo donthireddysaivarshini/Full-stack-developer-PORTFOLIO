@@ -119,10 +119,6 @@ body {
   }
 
   .scroller-inner {
-    @apply flex w-max animate-scroll gap-8 py-4;
-  }
-
-  .scroller:hover .scroller-inner {
-    animation-play-state: paused;
+    @apply flex w-max gap-8 py-4;
   }
 }
