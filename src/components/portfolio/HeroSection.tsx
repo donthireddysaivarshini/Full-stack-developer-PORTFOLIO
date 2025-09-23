@@ -26,7 +26,7 @@ export function HeroSection() {
       <div className="container relative z-10 grid items-center min-h-[calc(100vh-4rem)] py-20">
         
         {/* Floating Icons */}
-        <div className="hidden md:block">
+        <div>
           <Icons.react className="absolute top-[15%] left-[10%] w-12 h-12 text-primary/20 animate-float opacity-50" style={{ animationDelay: '1s' }} />
           <Icons.python className="absolute top-[20%] right-[15%] w-10 h-10 text-primary/20 animate-float opacity-50" style={{ animationDelay: '3s' }}/>
           <Database className="absolute bottom-[25%] left-[20%] w-8 h-8 text-primary/20 animate-float opacity-50" style={{ animationDelay: '2s' }} />
