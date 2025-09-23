@@ -34,7 +34,7 @@ const JourneyCard = ({ item }: { item: JourneyItem }) => {
   };
 
   return (
-    <div className="relative flex-shrink-0 w-80 pt-8">
+    <div className="relative flex-shrink-0 w-72 md:w-80 pt-8">
       <div className="absolute left-1/2 -translate-x-1/2 top-0 mt-6">
         <div className={`w-12 h-12 rounded-full bg-background border-4 border-primary flex items-center justify-center`}>
           <item.icon className={`w-6 h-6 ${iconColorClasses[item.type]}`} />
@@ -52,7 +52,7 @@ const JourneyCard = ({ item }: { item: JourneyItem }) => {
 
 export function DeveloperJourney() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  useAutoScroll(scrollRef, { speed: 1 });
+  useAutoScroll(scrollRef, { speed: 1.5 });
 
   const educationItem = portfolioData.education.find(e => e.degree.includes('B.Tech'));
   const internshipItem = portfolioData.experience[0];
@@ -125,7 +125,7 @@ export function DeveloperJourney() {
           }}
         >
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-border -z-10 mt-6" />
-          <div className="flex w-max gap-8">
+          <div className="flex w-max gap-8 px-4">
             {journeyItems.map((item, index) => (
               <JourneyCard key={index} item={item} />
             ))}
