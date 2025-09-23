@@ -105,31 +105,4 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
-  
-  .scroller {
-    @apply w-full overflow-x-auto;
-    -webkit-mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 80%,
-      transparent
-    );
-    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-  }
-
-  .scroller-inner {
-    @apply flex w-max gap-8 py-4;
-    animation: scroll 40s linear infinite;
-  }
-
-  .scroller:hover .scroller-inner {
-    animation-play-state: paused;
-  }
-
-  @keyframes scroll {
-    to {
-      transform: translateX(calc(-100% - 2rem));
-    }
-  }
 }
