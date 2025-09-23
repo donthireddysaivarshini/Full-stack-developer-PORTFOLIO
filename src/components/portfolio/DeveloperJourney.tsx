@@ -52,7 +52,7 @@ const JourneyCard = ({ item }: { item: JourneyItem }) => {
 
 export function DeveloperJourney() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  useAutoScroll(scrollRef, { speed: 2.5 });
+  useAutoScroll(scrollRef, { speed: 1 });
 
   const educationItem = portfolioData.education.find(e => e.degree.includes('B.Tech'));
   const internshipItem = portfolioData.experience[0];

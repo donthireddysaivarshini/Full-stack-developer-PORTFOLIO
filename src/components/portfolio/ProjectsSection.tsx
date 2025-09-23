@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: { project: typeof portfolioData.projects[0] })
 
 export function ProjectsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  useAutoScroll(scrollRef, { speed: 2.5 });
+  useAutoScroll(scrollRef, { speed: 1 });
 
   const allProjects = portfolioData.projects;
 
