@@ -105,4 +105,24 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+  
+  .scroller {
+    @apply w-full overflow-hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+
+  .scroller-inner {
+    @apply flex w-max animate-scroll gap-8 py-4;
+  }
+
+  .scroller:hover .scroller-inner {
+    animation-play-state: paused;
+  }
 }
