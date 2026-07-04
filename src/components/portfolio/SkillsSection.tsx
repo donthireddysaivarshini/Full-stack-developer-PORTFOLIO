@@ -49,17 +49,120 @@ export function SkillsSection() {
     <Section
       id="skills"
       title="Technical Skills"
-      description="My proficiency across various technologies in the full stack ecosystem."
+      description="Technologies and tools I use to build production-ready web applications."
       className="bg-card/50"
     >
-      <div className="relative group/section">
-        <div className="absolute -inset-4 bg-primary/10 rounded-2xl opacity-0 group-hover/section:opacity-100 transition-opacity duration-300 blur-2xl"></div>
-        <div className="relative grid md:grid-cols-2 gap-8">
-          <SkillChart category="frontend" title="Frontend Development" animation="fade-in-left" delay={0} />
-          <SkillChart category="backend" title="Backend Development" animation="fade-in-right" delay={100} />
-          <SkillChart category="databasesAndDevOps" title="Databases & DevOps" animation="fade-in-left" delay={200} />
-          <SkillChart category="emerging" title="Emerging Technologies" animation="fade-in-right" delay={300} />
-        </div>
+      <div className="grid lg:grid-cols-2 gap-6">
+
+        <Card className="bg-background/50">
+          <CardHeader>
+            <CardTitle>Frontend</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-3">
+              {[
+                'HTML',
+                'CSS',
+                'JavaScript',
+                'TypeScript',
+                'React',
+                'Next.js',
+                'Vite',
+                'Tailwind CSS',
+                'Framer Motion',
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-2 rounded-lg border bg-muted/40 text-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-background/50">
+          <CardHeader>
+            <CardTitle>Backend</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-3">
+              {[
+                'Python',
+                'Django',
+                'REST APIs',
+                'Firebase',
+                'FireCMS',
+                'Next.js API Routes',
+                'Authentication',
+                'Payment Integration',
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-2 rounded-lg border bg-muted/40 text-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-background/50">
+          <CardHeader>
+            <CardTitle>Database & Deployment</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-3">
+              {[
+                'MySQL',
+                'SQLite',
+                'Firebase',
+                'Docker',
+                'VPS Deployment',
+                'Linux',
+                'Nginx',
+                'Git',
+                'GitHub',
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-2 rounded-lg border bg-muted/40 text-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-background/50">
+          <CardHeader>
+            <CardTitle>Tools & AI</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-3">
+              {[
+                'Claude',
+                'Gemini',
+                'GitHub Copilot',
+                'OpenAI',
+                'VS Code',
+                
+                'Razorpay',
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-2 rounded-lg border bg-muted/40 text-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
       </div>
     </Section>
   );

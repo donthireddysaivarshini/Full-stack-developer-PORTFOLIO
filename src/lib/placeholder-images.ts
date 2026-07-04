@@ -1,5 +1,3 @@
-import data from './placeholder-images.json';
-
 export type ImagePlaceholder = {
   id: string;
   description: string;
@@ -7,4 +5,11 @@ export type ImagePlaceholder = {
   imageHint: string;
 };
 
-export const PlaceHolderImages: ImagePlaceholder[] = data.placeholderImages;
+export const PlaceHolderImages: ImagePlaceholder[] = [
+  {
+    id: "profile-pic",
+    description: "A professional headshot of Sai Varshini Donthireddy.",
+    imageUrl: "https://images.unsplash.com/photo-1694903110330-cc64b7e1d21d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxBSXxlbnwwfHx8fDE3NTgwMTg1NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageHint: "full stack"
+  }
+];
