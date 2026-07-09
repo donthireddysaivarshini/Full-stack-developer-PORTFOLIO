@@ -245,6 +245,7 @@ export function ProjectsSection() {
 
   return (
     <Section id="projects" title="Projects"
+    
 description="A collection of production applications, client projects, internships, hackathons, and personal builds showcasing my experience across full-stack development, AI-assisted development, and modern web technologies.">
       <div className="flex flex-col xl:flex-row gap-8 w-full max-w-7xl mx-auto pt-6">
         
